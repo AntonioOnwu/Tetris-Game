@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep  7 21:32:33 2018
+
+@author: antonioonwu
+"""
+import pygame
+pygame.init()
+bound1 = 100
+bound2 = 200
+
+win = pygame.display.set_mode((bound1,bound2))
+pygame.display.set_caption("Tetris")
+
+x = 50 
+y = 50
+width = 10
+height = 10
+vel = 1
+
+x2= 60 
+y2= 60
+width = 10
+height = 10
+vel = 1
+
+x3= 40 
+y3= 60
+width = 10
+height = 10
+vel = 1
+
+x4= 50 
+y4= 60 
+width = 10
+height = 10
+vel = 10
+
+run = True
+while run:
+    pygame.time.delay(1)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+    keys = pygame.key.get_pressed()
+            
+    if keys[pygame.K_LEFT] and x > vel:
+                x -= vel 
+    if keys[pygame.K_RIGHT] and x < bound1 - width-vel:
+                x += vel
+    if keys[pygame.K_UP] and y < vel:
+                y -= vel
+    if keys[pygame.K_SPACE] and y < bound2 - height-vel:   
+                y += vel   
+    if keys[pygame.K_LEFT] and x2 > vel:
+                x2 -= vel 
+    if keys[pygame.K_RIGHT] and x2 < bound1 - width-vel:
+                x2 += vel
+    if keys[pygame.K_UP] and y2 < vel:
+                y2 -= vel
+    if keys[pygame.K_SPACE] and y2 < bound2 - height-vel:   
+                y2 += vel   
+    if keys[pygame.K_LEFT] and x3 > vel:
+                x3 -= vel 
+    if keys[pygame.K_RIGHT] and x3 < bound1 - width-vel:
+                x3 += vel
+    if keys[pygame.K_UP] and y3 < vel:
+                y3 -= vel
+    if keys[pygame.K_SPACE] and y3 < bound2 - height-vel:   
+                y3 += vel   
+    if keys[pygame.K_LEFT] and x4 > vel:
+                x4 -= vel 
+    if keys[pygame.K_RIGHT] and x4 < bound1 - width-vel:
+                x4 += vel
+    if keys[pygame.K_UP] and y4 < vel:
+                y4 -= vel
+    if keys[pygame.K_SPACE] and y3 < bound2 - height-vel:   
+                y4 += vel   
+    
+    win.fill((0,100,0))
+    pygame.draw.rect(win, (250,0,0),(x,y,width,height))
+    pygame.draw.rect(win, (250,0,0),(x2,y2,width,height))
+    pygame.draw.rect(win, (250,0,0),(x3,y3,width,height))
+    pygame.draw.rect(win, (250,0,0),(x4,y4,width,height))
+    pygame.display.update()
+  
+pygame.quit()
